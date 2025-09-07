@@ -16,19 +16,19 @@ public class PersonController {
     private PersonRepository repository;
 
     // Obtener todas las personas
-    @GetMapping   // 👈 ya no repitas /api/person
+    @GetMapping
     public List<Person> allPersons() {
         return repository.findAll();
     }
 
     // Buscar personas por nombre
-    @GetMapping("/{name}")   // 👈 solo el nombre
+    @GetMapping("/{name}")
     public List<Person> findByName(@PathVariable("name") String name) {
         return repository.findByName(name);
     }
 
-    // Crear una nueva persona
-    @PostMapping   // 👈 ya incluye /api/person
+    // Crear una nueva persona para digitar los datos
+    @PostMapping
     public Person createPerson(@RequestBody Person person) {
         return repository.save(person);
     }

@@ -67,7 +67,7 @@ public class Person {
     }
 
     @Override
-    //Envío de información por pantalla 
+    //Envío de información por pantalla y en el JSON
     public String toString() {
         return "Person [id=" + id + ", name=" + name + ", userName=" + userName + ", date=" + date + "]";
     }

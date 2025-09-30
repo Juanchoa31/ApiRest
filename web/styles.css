@@ -39,3 +39,37 @@ form button{
     border: none;
     cursor: pointer;
 }
+
+form button:hover{
+    background-color: #218838;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td{
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+
+table td button{
+    padding: 5px 10px;
+    margin: 0 5 px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-btn{
+    background-color: #007bff;
+    color: white;
+}
+
+.delete-btn{
+    background-color: #dc3545;
+    color: white;
+}
+

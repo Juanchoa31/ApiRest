@@ -8,6 +8,7 @@ import com.tdea.demo.modelo.repository.PersonRepository;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/person")
 public class PersonController {

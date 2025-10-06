@@ -79,7 +79,12 @@ table td button{
     margin-top: 10px;
     border-radius: 5px;
     font-weight: bold;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+#messageBox.hide {
+    opacity: 0;
 }
 
 #messageBox.success {

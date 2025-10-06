@@ -1,11 +1,7 @@
 const API_URL = "http://localhost:8080/api";
 
-// ✅ Cargar la lista de personas cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", loadPersons);
 
-// ======================
-// 📌 Cargar todas las personas
-// ======================
 function loadPersons() {
     fetch(`${API_URL}/person`)
         .then(res => {
@@ -23,8 +19,8 @@ function loadPersons() {
                         <td>${p.name}</td>
                         <td>${p.userName || ""}</td>
                         <td>
-                            <button class="edit-btn" onclick='editPerson(${JSON.stringify(p)})'>Editar</button>
-                            <button class="delete-btn" onclick='deletePerson(${p.id})'>Eliminar</button>
+                            <button class="edit-btn" onclick='editPerson(${JSON.stringify(p)})'>✍🏼Editar</button>
+                            <button class="delete-btn" onclick='deletePerson(${p.id})'>🚫Eliminar</button>
                         </td>
                     </tr>
                 `;
@@ -34,9 +30,6 @@ function loadPersons() {
         .catch(error => console.error("Error al cargar personas:", error));
 }
 
-// ======================
-// 📌 Crear o actualizar persona
-// ======================
 function createOrUpdatePerson() {
     const id = document.getElementById("personId").value;
     const name = document.getElementById("name").value.trim();
@@ -68,18 +61,12 @@ function createOrUpdatePerson() {
     });
 }
 
-// ======================
-// 📌 Editar persona
-// ======================
 function editPerson(person) {
     document.getElementById("personId").value = person.id;
     document.getElementById("name").value = person.name;
     document.getElementById("userName").value = person.userName || "";
 }
 
-// ======================
-// 📌 Eliminar persona
-// ======================
 function deletePerson(id) {
     if (confirm("¿Deseas eliminar esta persona?")) {
         fetch(`${API_URL}/person/${id}`, {
@@ -97,22 +84,16 @@ function deletePerson(id) {
     }
 }
 
-// ======================
-// 📌 Limpiar formulario
-// ======================
 function clearForm() {
     document.getElementById("personId").value = "";
     document.getElementById("name").value = "";
     document.getElementById("userName").value = "";
 }
 
-// ======================
-// 📌 Mostrar mensajes de estado
-// ======================
 function showMessage(message, isError = false) {
     const msgBox = document.getElementById("messageBox");
 
-    // Reinicia cualquier temporizador previo
+
     clearTimeout(msgBox.hideTimeout);
 
     msgBox.textContent = message;
@@ -120,9 +101,12 @@ function showMessage(message, isError = false) {
     msgBox.style.backgroundColor = isError ? "#f8d7da" : "#d4edda";
     msgBox.style.color = isError ? "#721c24" : "#155724";
 
-    // Oculta después de 3 segundos, siempre igual
-    msgBox.hideTimeout = setTimeout(() => {
+    setTimeout(() => {
+    msgBox.classList.add("hide");
+        setTimeout(() => {
         msgBox.style.display = "none";
-    }, 1000);
+        msgBox.classList.remove("hide");
+    }, 500); // 👈 coincide con los 0.5s de transición en el CSS
+}, 3000); 
 }
 

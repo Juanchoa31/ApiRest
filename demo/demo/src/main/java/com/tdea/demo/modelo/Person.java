@@ -68,7 +68,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person [id=" + id + ", name=" + name + ", userName=" + userName + ", date=" + date + "]";
+        return "Person [id=" + id + ", name=" + name + ", userName=" + userName + ", date=" + date + "]"; //Devuelve la información del usuario
     }
     
 }
